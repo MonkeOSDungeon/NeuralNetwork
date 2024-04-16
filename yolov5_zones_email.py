@@ -28,9 +28,9 @@ def send_email(to_email:str, image_path:str,from_email:str, server:smtplib.SMTP_
     message = MIMEMultipart()
     message['From'] = from_email
     message['To'] = to_email
-    message['Subject'] = "Пакость"
+    message['Subject'] = "" 
     # Add in the message body
-    message_body = "Какие то люди ходят"
+    message_body = "" 
     # add image
     message.attach(MIMEText(message_body, 'plain')) 
     with open(image_path, 'rb') as file:
@@ -156,16 +156,16 @@ def log_in():
 
     return: touple(sender email, smtp server)
     '''
-    password = "ykwpcsugyflrrgsz"
-    sender = "alenafaust24@gmail.com"  
+    password = "" # password to email
+    sender = ""  # email from which emails wil be sent
     server = smtplib.SMTP_SSL("smtp.gmail.com",465)
     server.login(sender, password)# login to email
     return sender, server
 
 def main():
     zone = get_zone((960,0),(500,0),(500,720),(960,720))
-    video_path = "./test/in.avi" 
-    reciever = "lealorarok@gmail.com" 
+    video_path = "" 
+    reciever = "" # reciever email
     detect(video_path, zone, reciever, log_in())
 
 if __name__ == "__main__":
